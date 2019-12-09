@@ -14,12 +14,14 @@ public class ActItem extends Item implements Interactable {
 	}
 
 	@Override
-	public void use(TypeMsg type, String str1, String str2, String str3, Interactable object) {
+	public String use(TypeMsg type, String str1, String str2, String str3, Interactable object) {
+		String result = new String();
 		if (type == TypeMsg.HUMAN_ITEM) {
-			System.out.println(str1 + object.getName() + str2 + this.getName() + str3);
+			result = str1 + object.getName() + str2 + this.getName() + str3;
 		}
 		if (type == TypeMsg.ITEM_HUMAN) {
-			System.out.println(str1 + this.getName() + str2 + object.getName() + str3);
+			result = str1 + this.getName() + str2 + object.getName() + str3;
 		}
+		return result;
 	}
 }

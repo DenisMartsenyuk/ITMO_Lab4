@@ -23,8 +23,8 @@ public class Korotyshka implements Interactable {
 			this.name = name;
 		}
 
-		public void process(String str1, String str2, String str3) {
-			System.out.println(str1 + Korotyshka.this.getName() + str2 + this.getName() + str3);
+		public String process(String str1, String str2, String str3) {
+			return str1 + Korotyshka.this.getName() + str2 + this.getName() + str3;
 		}
 	}
 
@@ -34,13 +34,15 @@ public class Korotyshka implements Interactable {
 	}
 
 	@Override
-	public void use(TypeMsg type, String str1, String str2, String str3, Interactable object) {
+	public String use(TypeMsg type, String str1, String str2, String str3, Interactable object) {
+		String result = new String();
 		if (type == TypeMsg.HUMAN_ITEM) {
-			System.out.println(str1 + object.getName() + str2 + this.getName() + str3);
+			result = str1 + object.getName() + str2 + this.getName() + str3;
 		}
 		if (type == TypeMsg.ITEM_HUMAN) {
-			System.out.println(str1 + this.getName() + str2 + object.getName() + str3);
+			result = str1 + this.getName() + str2 + object.getName() + str3;
 		}
+		return result;
 	}
 
 	public void setStyle(LifeStyle style) {
@@ -51,8 +53,8 @@ public class Korotyshka implements Interactable {
 		return style;
 	}
 
-	public void process(String str1, String str2) {
-		System.out.println(str1 + getName() + str2);
+	public String process(String str1, String str2) {
+		return str1 + getName() + str2;
 	}
 
 	@Override
@@ -71,8 +73,8 @@ public class Korotyshka implements Interactable {
 		}
 
 		Korotyshka person = (Korotyshka) obj;
-		return (name == person.getName() || (name != null && name.equals(person.getName())))
-		     &&(style == person.getStyle() || (style != null && style.equals(person.getStyle())));
+		return (name == person.getName() && (name != null && name.equals(person.getName())))
+		     &&(style == person.getStyle() && (style != null && style.equals(person.getStyle())));
     }
 
     @Override

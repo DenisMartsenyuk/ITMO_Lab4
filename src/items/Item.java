@@ -27,7 +27,7 @@ public abstract class Item {
 		}
 
 		Item thing = (Item) obj;
-		return name == thing.getName() || (name != null && name.equals(thing.getName()));
+		return name == thing.getName() && (name != null && name.equals(thing.getName()));
     }
 
     @Override

@@ -1,22 +1,21 @@
-import java.util.ArrayList;
+import java.util.ArrayDeque;
 
 import exceptions.*;
 
 public class Scenario {
-	private ArrayList<String> replicas = new ArrayList<String>();
+	private ArrayDeque<String> replicas = new ArrayDeque<String>();
 
 	public void add(String replica) {
 		replicas.add(replica);
 	}
 
-	public void get(int index) throws UncheckedScenarioException {
-		if (index < 0) {
-			throw new UncheckedScenarioException("\nИндекс реплики не может быть отрицательным!\n");
-		}
+	public String getString() {
+		String result = new String();
 
-		if (index >= replicas.size()) {
-			throw new UncheckedScenarioException("\nВы еще не добавили реплику с таким номером!\n");
-		}
-		System.out.println(replicas.get(index));
+		for(String replica : replicas){
+          result = result + replica;
+        }
+
+        return result;
 	}
 }

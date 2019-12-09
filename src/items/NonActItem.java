@@ -8,7 +8,7 @@ public class NonActItem extends Item implements NonInteractable {
 	}
 
 	@Override
-	public void use(String str1, String str2) {
-		System.out.println(str1 + getName() + str2);
+	public String use(String str1, String str2) {
+		return str1 + getName() + str2;
 	}
 }
